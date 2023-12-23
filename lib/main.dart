@@ -3,6 +3,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:test_2/facebook_ui/facebook_ui.dart';
+import 'package:test_2/widgets/aspect_radio.dart';
 import 'package:test_2/widgets/custom_font.dart';
 import 'package:test_2/widgets/custom_icon2.dart';
 import 'package:test_2/widgets/image.dart';

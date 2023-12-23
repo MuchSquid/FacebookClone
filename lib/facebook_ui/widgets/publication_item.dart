@@ -41,8 +41,16 @@ class PublicationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     const reactions = Reaction.values;
 
-    return SizedBox(
+    return Container(
       width: double.infinity,
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            width: 6,
+            color: Colors.grey.shade300,
+          ),
+        ),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -53,9 +61,9 @@ class PublicationItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Avatar(
+                Avatar(
                   size: 38,
-                  assets: 'assets/users/1.jpg',
+                  assets: publication.user.avatar,
                 ),
                 const SizedBox(
                   width: 10,
@@ -72,11 +80,13 @@ class PublicationItem extends StatelessWidget {
               ],
             ),
           ),
-          CachedNetworkImage(
-            imageUrl: publication.imageURL,
-            height: 180,
-            width: double.infinity,
-            fit: BoxFit.cover,
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: CachedNetworkImage(
+              imageUrl: publication.imageURL,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -85,6 +95,10 @@ class PublicationItem extends StatelessWidget {
             ).copyWith(top: 15),
             child: Text(
               publication.title,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
           Padding(
